@@ -50,7 +50,7 @@ local XPYTHON=~/xtools/python2/${DROBO}
 
 _download_tgz "${FILE}" "${URL}" "${FOLDER}"
 pushd "target/${FOLDER}"
-_PYTHON_HOST_PLATFORM="linux-armv7l" PYTHONPATH="${XPYTHON}" "${XPYTHON}/bin/python" setup.py build_ext --force build --force bdist_egg --dist-dir ../..
+_PYTHON_HOST_PLATFORM="linux-armv7l" LDSHARED="${CC} -shared -Wl,-rpath,/mnt/DroboFS/Share/DroboApps/python2/lib -L${DEST}/lib-5n" "${XPYTHON}/bin/python" setup.py build_ext --force build --force bdist_egg --dist-dir ../..
 popd
 }
 
