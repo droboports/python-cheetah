@@ -49,7 +49,7 @@ local URL="https://pypi.python.org/packages/source/C/Cheetah/${FILE}"
 local XPYTHON=~/xtools/python2/${DROBO}
 
 _download_tgz "${FILE}" "${URL}" "${FOLDER}"
-pushd target/"${FOLDER}"
+pushd "target/${FOLDER}"
 _PYTHON_HOST_PLATFORM="linux-armv7l" PYTHONPATH="${XPYTHON}" "${XPYTHON}/bin/python" setup.py build_ext --force build --force bdist_egg --dist-dir ../..
 popd
 }
